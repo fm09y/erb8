@@ -1,33 +1,32 @@
-
-{%load {% static %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- Font Awesome -->
-    <link rel="stylesheet" href={% static 'css/all.css' %}/>
+    <link rel="stylesheet" href={% static "css/all.css" %} />
+    {% comment %} <link rel="stylesheet" href="assets/css/all.css" /> {% endcomment %}
     <!-- Bootstrap -->
-    <link rel="stylesheet" href={% static "css/bootstrap.css" %}/>
+    <link rel="stylesheet" href={% static "css/bootstrap.css" %} />
+    {% comment %} <link rel="stylesheet" href="assets/css/bootstrap.css" /> {% endcomment %}
     <!-- Custom -->
-    <link rel="stylesheet" href={% static "css/style.css" %}/>
+    <link rel="stylesheet" href={% static "css/style.css" %} />
+    {% comment %} <link rel="stylesheet" href="assets/css/style.css" /> {% endcomment %}
 
     <title>BC Health Care</title>
   </head>
   <body>
-    {% comment %} topbar {% endcomment %}
-    {% include 'partials/_topbar.html' %}
-    {% comment %} navbar {% endcomment %}
-    {% include 'partials/_nabar.html' %}
-    {% comment %} content {% endcomment %}
-    {% block content %}{% endblock %}
-    {% comment %} footer {% endcomment %}
-    {% include 'partials/_footer.html' %}
+{% include 'partials/_topbar.html' %}
+{% include 'partials/_navbar.html' %}
+{% block content %}{% endblock %}
+{% include 'partials/_footer.html' %}
     <script src={% static "js/jquery-3.3.1.min.js" %}></script>
+    {% comment %} <script src="assets/js/jquery-3.3.1.min.js"></script> {% endcomment %}
     <script src={% static "js/bootstrap.bundle.min.js" %}></script>
-    <script src={% static "js/main.js" % }></script>
-
-
+    {% comment %} <script src="assets/js/bootstrap.bundle.min.js"></script> {% endcomment %}
+    <script src={% static "js/main.js" %}></script>
+    {% comment %} <script src="assets/js/main.js"></script> {% endcomment %}
   </body>
 </html>

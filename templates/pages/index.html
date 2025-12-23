@@ -1,6 +1,10 @@
-{% comment %}  {% endcomment %}<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% comment %} index main content {% endcomment %}
+{% comment %} <!DOCTYPE html> {% endcomment %}
 <html lang="en">
-  <head>
+  {% block content %}
+  {% comment %} <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -12,10 +16,10 @@
     <link rel="stylesheet" href="assets/css/style.css" />
 
     <title>BC Health Care</title>
-  </head>
+  </head> {% endcomment %}
 
   <body>
-    <!-- Top Bar -->
+    {% comment %} <!-- Top Bar -->
     <section id="top-bar" class="p-3">
       <div class="container">
         <div class="row">
@@ -46,9 +50,9 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> {% endcomment %}
 
-    <!-- Navbar -->
+    {% comment %} <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
       <div class="container">
         <a class="navbar-brand" href="index.html">
@@ -91,7 +95,7 @@
           </ul>
         </div>
       </div>
-    </nav>
+    </nav> {% endcomment %}
 
     <!-- Showcase -->
     <section id="showcase">
@@ -105,6 +109,7 @@
               tempore! Consectetur, id commodi!
             </p>
             <div class="search">
+              {% comment %} todo {% endcomment %}
               <form action="search.html">
                 <!-- Form Row 1 -->
                 <div class="form-row">
@@ -195,6 +200,7 @@
             <div class="card listing-preview">
               <img
                 class="card-img-top"
+                {% comment %} todo {% endcomment %}
                 src="assets/img/clinics/clinic-1.jpg"
                 alt=""
               />
@@ -234,6 +240,7 @@
                   </div>
                 </div>
                 <hr />
+                {% comment %} todo {% endcomment %}
                 <a href="listing.html" class="btn btn-primary btn-block"
                   >More Info</a
                 >
@@ -246,6 +253,7 @@
             <div class="card listing-preview">
               <img
                 class="card-img-top"
+                {% comment %} todo {% endcomment %}
                 src="assets/img/clinics/clinic-2.jpg"
                 alt=""
               />
@@ -288,6 +296,7 @@
                   </div>
                 </div>
                 <hr />
+                {% comment %} todo {% endcomment %}
                 <a href="listing.html" class="btn btn-primary btn-block"
                   >More Info</a
                 >
@@ -300,6 +309,7 @@
             <div class="card listing-preview">
               <img
                 class="card-img-top"
+                {% comment %} todo {% endcomment %}
                 src="assets/img/clinics/clinic-3.jpg"
                 alt=""
               />
@@ -340,6 +350,7 @@
                   </div>
                 </div>
                 <hr />
+                {% comment %} todo {% endcomment %}
                 <a href="listing.html" class="btn btn-primary btn-block"
                   >More Info</a
                 >
@@ -387,7 +398,7 @@
       </div>
     </section>
 
-    <!-- Footer -->
+    {% comment %} <!-- Footer -->
     <footer id="main-footer" class="py-4 bg-primary text-white text-center">
       Copyright &copy;
       <span class="year"></span> BC Health Care 
@@ -395,6 +406,7 @@
 
     <script src="assets/js/jquery-3.3.1.min.js "></script>
     <script src="assets/js/bootstrap.bundle.min.js "></script>
-    <script src="assets/js/main.js "></script>
+    <script src="assets/js/main.js "></script> {% endcomment %}
+    {% endblock content %}
   </body>
 </html>

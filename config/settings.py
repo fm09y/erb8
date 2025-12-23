@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
+
 from pathlib import Path
 from dotenv import load_dotenv
 import os 
@@ -27,7 +28,6 @@ DEBUG = True
 # SECURITY WARNING: don't run with debug turned on in production!
 SECRET_KEY = os.getenv('SECRET_KEY') 
 
-
 ALLOWED_HOSTS = []
 
 
@@ -42,7 +42,10 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ] 
 
-APPLICATION_APPS = ['pages.apps.PagesConfig'] #3rd party app
+APPLICATION_APPS = ['pages.apps.PagesConfig',
+                    'doctors.apps.DoctorsConfig',
+                    'listings.apps.ListingsConfig'] 
+#3rd party app
 
 INSTALLED_APPS = DJANGO_APPS + APPLICATION_APPS # place to note
 
