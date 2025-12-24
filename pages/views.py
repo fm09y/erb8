@@ -1,11 +1,33 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.core.paginator import Paginator
+from .models import Listing
 
-# Controller, Router
+def listings(request):
+    """Display all listings with pagination"""
+    listings_list = Listing.objects.all().order_by('-id')
+    
+    # Pagination (3 per page)
+    paginator = Paginator(listings_list, 3)
+    page_number = request.GET.get('page')
+    listings = paginator.get_page(page_number)
+    
+    context = {
+        'listings': listings
+    }
+    return render(request, 'listings/listings.html', context)
 
-# Create your views here.
+def listing(request, listing_id):
+    """Single listing detail page"""
+    listing = Listing.objects.get(id=listing_id)
+    context = {
+        'listing': listing
+    }
+    return render(request, 'listings/listing.html', context)
+
+# Keep your existing views (but rename index to listings)
 def index(request):
-  return render(request,'pages/index.html')
+    print(request, request.path)
+    return render(request, 'pages/index.html')
 
 def about(request):
-  return render(request, 'pages/about.html')
+    return render(request, 'pages/about.html')
