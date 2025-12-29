@@ -1,6 +1,26 @@
 from django.shortcuts import render
-from django.core.paginator import Paginator
+#from django.core.paginator import Paginator
 from .models import Listing
+
+'''def index(request):
+    return render(request, 'pages/index.html', {'anything': 'something', 'number: 1234'}
+def about(request):
+    print(request, request.path)
+    return render(request, 'pages/about.html')'''
+
+def index(request):
+    listings=Listing.objects.all()
+    context = {'Listings': Listings}
+    return render(request, 'pages/index.html', context)
+
+def index(request):
+    print(request, request.path)
+    return render(request, 'pages/index.html')
+
+def about(request):
+    return render(request, 'pages/about.html')
+
+
 
 def listings(request):
     """Display all listings with pagination"""
@@ -25,9 +45,3 @@ def listing(request, listing_id):
     return render(request, 'listings/listing.html', context)
 
 # Keep your existing views (but rename index to listings)
-def index(request):
-    print(request, request.path)
-    return render(request, 'pages/index.html')
-
-def about(request):
-    return render(request, 'pages/about.html')
