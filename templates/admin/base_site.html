@@ -1,0 +1,12 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block branding %}             <!-- 1. FIRST: Logo/title -->
+  <img src="{% static 'img/logo.png' %}" alt="Clinic logo" class="brand_img" height="35" width="45" />
+  <span class="brands">Clinic Center Admin</span>
+{% endblock %}
+
+{% block extra_styles %}         <!-- 2. LAST: CSS link -->
+  <link rel="stylesheet" href="{% static 'css/admin.css' %}" />
+{% endblock %}
+

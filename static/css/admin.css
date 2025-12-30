@@ -1,0 +1,39 @@
+#header {
+    height: 50px;
+    background: #273d5f;  /* Fixed: background-color instead of color */
+    color: #209547;        /* White text for dark header */
+}
+
+#branding h1 {
+    color: aquamarine;
+}
+
+a:link,
+a:visited {
+    color: #007bff;        /* Blue links */
+}
+
+div.breadcrumbs {
+    background: #f8f9fa;   /* Light gray background */
+    color: #6c757d;        /* Dark gray text */
+}
+
+.module h2, 
+.module caption,
+.inlinegroup h2 {
+    background: #29ab88;
+    color: #65cde1;        /* White text for green bg */
+}
+
+.button, 
+input[type="submit"],
+input[type="button"],
+.submit-row input,
+a.button { 
+    background: #2d4363; 
+    color: #a8f452;        /* White text for dark button */
+}
+
+.brands { 
+    margin-left: 15px; 
+}
