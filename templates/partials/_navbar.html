@@ -17,7 +17,7 @@
           <a class="nav-link" href="{% url 'pages:about' %}">About</a>
         </li>
         <li {% if request.path == '/listings/' %}class="nav-item active mr-3"{% else %}class="nav-item mr-3"{% endif %}>
-          <a class="nav-link" href="{% url 'pages:listings' %}">
+          <a class="nav-link" href="{% url 'listings:listings' %}">
             Inpatient medical services
           </a>
         </li>
