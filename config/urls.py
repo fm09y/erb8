@@ -19,3 +19,4 @@ urlpatterns = [
 admin.site.site_header = 'Clinic Administration'
 admin.site.site_title = 'Clinic Admin Portal'
 admin.site.index_title = 'Welcome to Clinic Portal'
+

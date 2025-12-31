@@ -1,39 +1,36 @@
 #header {
-    height: 50px;
-    background: #273d5f;  /* Fixed: background-color instead of color */
-    color: #209547;        /* White text for dark header */
+  height: 50px;
+  background: #2d4363;
+  color: #fff;
 }
-
 #branding h1 {
-    color: aquamarine;
+  color: #fff;
 }
-
 a:link,
 a:visited {
-    color: #007bff;        /* Blue links */
+  color: #2d4363;
 }
-
 div.breadcrumbs {
-    background: #f8f9fa;   /* Light gray background */
-    color: #6c757d;        /* Dark gray text */
+  background: #29ab88;
+  color: #2d4363;
 }
-
-.module h2, 
+div.breadcrumbs a {
+  color: #333;
+}
+.module h2,
 .module caption,
 .inlinegroup h2 {
-    background: #29ab88;
-    color: #65cde1;        /* White text for green bg */
+  background: #29ab88;
 }
-
-.button, 
+.button,
 input[type="submit"],
 input[type="button"],
 .submit-row input,
-a.button { 
-    background: #2d4363; 
-    color: #a8f452;        /* White text for dark button */
+a.button {
+  background: #2d4363;
+  color: #333;
 }
 
-.brands { 
-    margin-left: 15px; 
+.brands {
+  margin-left: 15px;
 }

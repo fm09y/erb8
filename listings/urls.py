@@ -9,7 +9,7 @@ urlpatterns = [
     path('', views.index, name='index'),
 
     # Individual listing detail page
-    path('<int:listing_id>/', views.listing, name='detail'),
+    path('<int:listing_id>/', views.listing, name='listing'),
 
     # Search page
     path('search/', views.search, name='search'),
