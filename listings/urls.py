@@ -6,7 +6,7 @@ app_name = 'listings'
 
 urlpatterns = [
     # Main listings page (list of all listings)
-    path('', views.index, name='index'),
+    path('', views.listings, name='index'),
 
     # Individual listing detail page
     path('<int:listing_id>/', views.listing, name='listing'),

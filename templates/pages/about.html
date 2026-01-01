@@ -1,4 +1,4 @@
-{{% extends 'base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% load humanize %}
 
@@ -47,9 +47,7 @@
         {% comment %} <img src="assets/img/about.jpg" alt="" /> {% endcomment %}
         <img src={% static 'img/about.jpg' %} alt="" />
         <p class="mt-4">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Perspiciatis esse officia repudiandae ad saepe ex, amet neque quod
-          accusamus rem quia magnam magni dolorum facilis ullam minima
+          It is a class project to learn Python and Django. Here under are the content making up temporarily for the content rem quia magnam magni dolorum facilis ullam minima
           perferendis? Exercitationem at quaerat commodi id libero eveniet
           harum perferendis laborum molestias quia.
         </p>
@@ -98,7 +96,7 @@
         {% for doctor in doctors %}
       <div class="col-md-4">
         <img
-          src="doctor.photo.url }}"
+          src="{{ doctor.photo.url }}"
           alt=""
           class="rounded-circle mb-3 img-fluid"
           style="object-fit: cover; width: 300px; height: 300px"
@@ -120,3 +118,5 @@
 {% endif %}
 
 {% endblock %}
+
+# # fadkd
