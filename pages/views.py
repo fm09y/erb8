@@ -3,6 +3,15 @@ from listings.models import Listing
 from doctors.models import Doctor
 from listings.choices import district_choices, room_choices, rooms_choices
 
+#TODO: update index and about views
+# # Homepage
+# ? List 3 latst listings
+# @ klkl
+# ! dkfakdj
+# # 
+# #
+
+
 def index(request):
     listings = Listing.objects.order_by('-list_date').filter(is_published=True)[:3]
     context = {
