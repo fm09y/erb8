@@ -52,12 +52,9 @@ def register(request):
         return render(request, 'accounts/register.html')
 
 def dashboard(request):
-    user_contacts = Contact.objects.filter(
-        user_id=request.user.id
-    ).order_by('-contact_date')
-    
-    return render(
-        request, 
-        'accounts/dashboard.html', 
-        {'contacts': user_contacts}
-    )
+    return render(request, 'accounts/dashboard.html')
+    user_contacts = Contact.objects.all().filter(
+        user_id=request.user.id).order_by('-contact_date')
+    context = {"contacts": user_contacts}
+    return render(request, 'accounts/dashboard.html', context)
+

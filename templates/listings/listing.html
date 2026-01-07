@@ -1,4 +1,4 @@
-d{% extends "base.html" %}
+{% extends "base.html" %}
 <!-- load static-->
 {% load static %}
 <!-- loads humanize-->
@@ -32,7 +32,7 @@ d{% extends "base.html" %}
     </nav>
   </div>
 </section>
-{% include "partials/_alert.html" %}
+{% include 'partials/_alert.html' %}
 <!-- Listing -->
 <section id="listing" class="py-4">
   <div class="container">
@@ -122,17 +122,34 @@ d{% extends "base.html" %}
             </ul>
           </div>
         </div>
-
-        <!-- Description -->
-        <div class="row mb-5">
-          <div class="col-md-12">{{listing.description | linebreaks}}</div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card mb-3">
-          <img
-            class="card-img-top"
-            src="{{listing.doctor.photo.url}}"
+<!---professional-->
+<div class=row mb-5>
+  <h4 class="mr-3 text-secondary">Professions:</h4>
+  {% if listing.professions.all %}
+  <ul>
+    {% for profession in listing.professions.all %}
+    <li class = 'mr-3 text warning'><h4>{{profession.name}}</h4></li>
+    {% endfor %}
+  </ul>
+{% else %}
+<p> class= 'text-secondary'>No professions listed.</p>
+{% endif%}
+</div>
+<!---services-->
+<div class= "row mb-5">
+  <h4 class="text-secondary ">Services:</h4>
+  {% if listing.services.all %}
+  <!----service tag-->
+  <ul>
+    {% for service_tag in listing.services.all %}
+    <li class="mr-3"><h4>{{service_tag.name | title}} </h4></li>
+  </ul>
+  {% endfor%}{% else%}
+  <h4>No services</h4>
+  {%  endif %}
+</div>
+<div class=row mb-r>
+             src="{{listing.doctor.photo.url}}"
             alt="Doctor of the month"
           />
           <div class="card-body">
@@ -163,16 +180,15 @@ d{% extends "base.html" %}
         </button>
       </div>
       <div class="modal-body">
-          <form method="POST" action="{% url 'contacts:contact'%}">
-            {% csrf_token %}
-            <input type="hidden" name="listing_id" value ="{{lisitng.id}}" />
-            {%if user.is_authenticated%}
-            <input type="hidden" name="user_id" value="{{user.id}}" />
-            {% else%}
-            <input type= "hidden" name="user_id" value="0" />
-            {% endif%}
-           <div class="form-group">
-
+        <form method="POST" action="{% url 'contacts:contact' %}">
+          {% csrf_token %}
+          <input type="hidden" name="listing_id" value="{{listing.id}}" />
+          {% if user.is_authenticated %}
+          <input type="hidden" name="user_id" value="{{user.id}}" />
+          {% else %}
+          <input type="hidden" name="user_id" value="0" />
+          {% endif %}
+          <div class="form-group">
             <label for="listing" class="col-form-label">Clinic:</label>
             <input
               type="text"
@@ -184,31 +200,29 @@ d{% extends "base.html" %}
           </div>
           <div class="form-group">
             <label for="name" class="col-form-label">Name:</label>
-            <input type="text" name="name" class="form-control" 
-            {% if user.is_authenticated %} value= ''{{user.email}}" readonly {%endif%} />
+            <!-- prettier-ignore -->
+            <input
+              type="text"
+              name="name"
+              class="form-control"
+              {% if user.is_authenticated %}
+              value="{{user.first_name}} {{user.last_name}}"
+              readonly
+              {% endif %}
+            />
           </div>
-
           <div class="form-group">
             <label for="email" class="col-form-label">Email:</label>
-            <input type="email" name="email" class="form-control"  />
-            
-
-
-
-           {% if user.is_authenticated %}
-           value='{{user.email}}'
-           readonly
-          {% endif %}
-
-
-            
+            <!-- prettier-ignore -->
+            <input type="email" name="email" class="form-control" 
+             {% if user.is_authenticated %}
+              value="{{user.email}}"
+              readonly
+              {% endif %}  />
           </div>
           <div class="form-group">
             <label for="phone" class="col-form-label">Phone:</label>
             <input type="text" name="phone" class="form-control" />
-            
-
-
           </div>
           <div class="form-group">
             <label for="message" class="col-form-label">Message:</label>

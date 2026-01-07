@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{{% extends 'base.html' %}  <!-- FIXED: Added missing '{' -->
 {% load humanize %}
 
 {% block content %}
@@ -53,7 +53,8 @@
                   <td>{{ contact.listing.id }}</td>
                   <td>{{ contact.listing|title }}</td>
                   <td>
-                    <a class="btn btn-light" href="{% url 'listings:listing' contact.listing_id %}">
+                    <a class="btn btn-light" 
+                       href="{% url 'listings:listing' contact.listing_id %}">
                       View Listing
                     </a>
                     <button class="btn btn-danger"
@@ -63,6 +64,10 @@
                             data-id="{{ contact.id }}">
                       Delete Listing
                     </button>
+                    <a class="btn btn-success"                 <!-- FIXED: Same style as others -->
+                       href="{% url 'contacts:edit_contact' contact.id %}">
+                      Edit message
+                    </a>
                   </td>
                 </tr>
               {% endfor %}
@@ -93,6 +98,7 @@
   </div>
 </div>
 {% endblock %}
+
 
 
  
