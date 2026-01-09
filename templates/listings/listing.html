@@ -182,7 +182,12 @@
       <div class="modal-body">
         <form method="POST" action="{% url 'contacts:contact' %}">
           {% csrf_token %}
-          <input type="hidden" name="listing_id" value="{{listing.id}}" />
+          <input 
+          type="hidden" 
+          name="listing_id" 
+          value="{{listing.id}}" 
+          />
+          <input type="hidden" name="doctor_email" value="{{listing.doctor.email}" />
           {% if user.is_authenticated %}
           <input type="hidden" name="user_id" value="{{user.id}}" />
           {% else %}

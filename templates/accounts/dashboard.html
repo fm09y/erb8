@@ -1,6 +1,8 @@
-{{% extends 'base.html' %}  <!-- FIXED: Added missing '{' -->
+{{% extends 'base.html' %}  
+<!-- FIXED: Added missing -->
 {% load humanize %}
-
+{% block title %} | {{user.username | title}} { {% endblock %}}
+<!---load something-->
 {% block content %}
 <section id="showcase-inner" class="py-5 text-white">
   <div class="container">
